@@ -5,6 +5,8 @@ import { gql } from '@apollo/client'
 import { getClient } from '../lib/client'
 import { cookies } from 'next/headers'
 
+import Image from 'next/image'
+
 // const USER_QUERY = gql`
 //     query Query {
 //         user {
@@ -59,7 +61,7 @@ export default async function Page() {
                 }) => (
                     <div key={id}>
                         <h3>{name}</h3>
-                        <img width='400' height='250' alt='location-reference' src={`${photo}`} />
+                        <Image width='400' height='250' alt='location-reference' src={`${photo}`} />
                         <br />
                         <b>About this location:</b>
                         <p>{description}</p>

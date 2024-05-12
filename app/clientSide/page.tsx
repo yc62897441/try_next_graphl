@@ -1,8 +1,11 @@
 'use client'
+
 import React from 'react'
 import { gql, useQuery } from '@apollo/client'
 import { getClient } from '../lib/client'
 import { useCookies } from 'next-client-cookies'
+
+import Image from 'next/image'
 
 const GET_LOCATIONS = gql`
     query GetLocations {
@@ -63,7 +66,12 @@ export default function Page() {
                     }) => (
                         <div key={id}>
                             <h3>{name}</h3>
-                            <img width='400' height='250' alt='location-reference' src={`${photo}`} />
+                            <Image
+                                width='400'
+                                height='250'
+                                alt='location-reference'
+                                src={`${photo}`}
+                            />
                             <br />
                             <b>About this location:</b>
                             <p>{description}</p>
