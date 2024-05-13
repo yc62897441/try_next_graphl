@@ -20,6 +20,10 @@ export default function Home() {
                 height={37}
                 priority
             />
+
+            <p>The quick brown fox ...</p>
+            <p className='antialiased'>The quick brown fox ...</p>
+            <p className='subpixel-antialiased'>The quick brown fox ...</p>
         </main>
     )
 }

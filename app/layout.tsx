@@ -1,14 +1,24 @@
+// 套件
+import React from 'react'
+
 // 使用 provider 把 layout 包裹起來
 // import { ApolloWrapper } from '/@lib/apollo-wrapper'
 import { ApolloWrapper } from './lib/apollo-wrapper'
 
 import type { Metadata } from 'next'
+
+// 優化字體效能 optimize fonts，避免 Cumulative Layout Shift
+// https://nextjs.org/learn/dashboard-app/optimizing-fonts-images#why-optimize-fonts
 import { Inter } from 'next/font/google'
+const inter = Inter({ subsets: ['latin'] })
+
+// 靜態資源
 import './globals.css'
 
+// 自定義 components
 import Header from './ui/Header'
 
-const inter = Inter({ subsets: ['latin'] })
+// 自定義函數 or 參數
 
 export const metadata: Metadata = {
     title: 'Create Next App',
