@@ -45,7 +45,7 @@ export default function Page() {
 
     return (
         <>
-            <h1>Client Side Page</h1>
+            <h1 className={'mb-4 text-xl md:text-2xl'}>Client Side Page</h1>
 
             {loading ? (
                 <p>Loading...</p>

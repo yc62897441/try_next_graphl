@@ -52,7 +52,7 @@ export default async function Page() {
     // console.log('data', data) // 只會在終端機顯示，猜測因為這是 server component
     return (
         <>
-            <h1>Server Side Page</h1>
+            <h1 className={'mb-4 text-xl md:text-2xl'}>Server Side Page</h1>
             {data.locations.map(
                 ({
                     id,
