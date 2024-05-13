@@ -1,5 +1,11 @@
 // 在 server components 搜尋 Data
 
+// Using Server Components to fetch data
+// 在全端專案中，使用 Database queries 來存取資料庫資料(建立 API endpoints)
+// 在 Server Components 中可以使用 async/await 語法來操作資料庫，並且不需要使用 useEffect、useState、data fetching libraries
+// https://nextjs.org/learn/dashboard-app/fetching-data#choosing-how-to-fetch-data
+// https://nextjs.org/learn/dashboard-app/fetching-data#using-server-components-to-fetch-data
+
 import { gql } from '@apollo/client'
 // import { getClient } from '@/lib/client'
 import { getClient } from '../lib/client'

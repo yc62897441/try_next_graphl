@@ -53,6 +53,10 @@ const navList = [
         name: 'serverSide',
         href: '/serverSide',
     },
+    {
+        name: 'serverSide Dynamic Rendering',
+        href: '/serverSide/dynamicRendering',
+    },
 ]
 
 export default function Header() {
