@@ -1,3 +1,4 @@
+// sql
 import { fetchRevenue, generateYAxis } from '@/app/lib/data'
 
 // This component is representational only.

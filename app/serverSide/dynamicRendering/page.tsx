@@ -5,7 +5,6 @@ import { unstable_noStore as noStore } from 'next/cache' // Note: unstable_noSto
 // 實作單個 component streaming(Streaming a component)
 // 有時候一個頁面中有多個動態生成的原件，如果只使用 loading.tsx，則會導致要等到最後一個動態生成的資料處理好後，loading 才會結束
 // https://nextjs.org/learn/dashboard-app/streaming#streaming-a-component
-// sql
 import { Suspense } from 'react'
 import { RevenueChartSkeleton } from '@/app/ui/skeletons'
 import RevenueChart from '@/app/ui/serverSide/revenue-chart'

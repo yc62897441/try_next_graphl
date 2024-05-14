@@ -36,7 +36,7 @@ const Nav = styled.div<NavProps>`
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    margin: 0 10px 0 0;
+    margin: 0 20px 0 0;
     color: ${({ isActive }) => (isActive ? 'red' : 'auto')};
 `
 
@@ -56,6 +56,10 @@ const navList = [
     {
         name: 'serverSide Dynamic Rendering',
         href: '/serverSide/dynamicRendering',
+    },
+    {
+        name: 'serverSide Search',
+        href: '/serverSide/search',
     },
 ]
 

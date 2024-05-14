@@ -13,7 +13,9 @@
   "dependencies": {
     "@apollo/client": "^3.10.0-rc.1",
     "@apollo/experimental-nextjs-app-support": "^0.10.1",
+    "@heroicons/react": "^2.0.18",
     "@vercel/postgres": "^0.5.1",
+    "clsx": "^2.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-jest": "^27.6.3",
     "eslint-plugin-prettier": "^5.1.3",
@@ -23,7 +25,8 @@
     "prettier": "^3.2.5",
     "react": "^18",
     "react-dom": "^18",
-    "styled-components": "^6.1.11"
+    "styled-components": "^6.1.11",
+    "use-debounce": "^10.0.0"
   },
   "devDependencies": {
     "@types/node": "^20",
