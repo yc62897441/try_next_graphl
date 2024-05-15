@@ -65,6 +65,10 @@ const navList = [
         name: 'serverSide Search Create',
         href: '/serverSide/search/create',
     },
+    {
+        name: 'zustand',
+        href: '/zustand',
+    },
 ]
 
 export default function Header() {
