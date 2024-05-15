@@ -69,6 +69,10 @@ const navList = [
         name: 'zustand',
         href: '/zustand',
     },
+    {
+        name: 'zustand2',
+        href: '/zustand2',
+    },
 ]
 
 export default function Header() {

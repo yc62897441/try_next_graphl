@@ -19,6 +19,7 @@ import './globals.css'
 import Header from './ui/Header'
 
 // 自定義函數 or 參數
+import { CounterStoreProvider } from './store/counter-store-provider'
 
 // 設定 css-in-js styled-components
 // 避免到了瀏覽器才執行 JS 渲染 CSS 樣式，造成畫面版面異動
@@ -36,8 +37,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <body className={inter.className}>
                 <ApolloWrapper>
                     <StyledComponentsRegistry>
-                        <Header />
-                        {children}
+                        <CounterStoreProvider>
+                            <Header />
+                            {children}
+                        </CounterStoreProvider>
                     </StyledComponentsRegistry>
                 </ApolloWrapper>
             </body>

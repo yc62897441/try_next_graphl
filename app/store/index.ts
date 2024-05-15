@@ -7,11 +7,13 @@
 // zustand 文件
 // https://docs.pmnd.rs/zustand/getting-started/introduction
 // https://docs.pmnd.rs/zustand/guides/initialize-state-with-props
+// https://docs.pmnd.rs/zustand/guides/nextjs
 
-import { create, createStore } from 'zustand'
+import { create } from 'zustand'
+import { createStore } from 'zustand/vanilla'
 
 interface BearProps {
-  bears: number
+    bears: number
 }
 
 // interface BearState {
@@ -20,35 +22,35 @@ interface BearProps {
 //   reset: () => void
 // }
 interface BearState extends BearProps {
-  increase: (by: number) => void
-  reset: () => void
+    increase: (by: number) => void
+    reset: () => void
 }
 
-
 export const useCountStore = create<BearState>()((set) => ({
-  bears: 0,
-  increase: (by) => set((state) => ({ bears: state.bears + by })),
-  reset: () => set({ bears: 0 })
+    bears: 0,
+    increase: (by) => set((state) => ({ bears: state.bears + by })),
+    reset: () => set({ bears: 0 }),
 }))
 
-// try 在 server component 使用
-// const createBearStore = (initProps?: Partial<BearProps>) => {
-//   const DEFAULT_PROPS: BearProps = {
-//     bears: 0,
-//   }
-
-//   return createStore<BearState>()((set) => ({
-//     ...DEFAULT_PROPS,
-//     ...initProps,
-//     increase: (by) => set((state) => ({ bears: state.bears + by })),
-//     reset: () => set({ bears: 0 })
-//   }))
-// }
-
-// import { createContext } from 'react'
-// type BearStore = ReturnType<typeof createBearStore>
-// export const BearContext = createContext<BearStore | null>(null)
-
-
-
-
+// try 在 server component 使用(zustand2 路由，失敗)
+export type CounterState = {
+    count: number
+}
+export type CounterActions = {
+    incrementCount: () => void
+    reset: () => void
+}
+export type CounterStore = CounterState & CounterActions
+export const initCounterStore = (): CounterState => {
+    return { count: new Date().getFullYear() }
+}
+export const defaultInitState: CounterState = {
+    count: 0,
+}
+export const createCounterStore = (initState: CounterState = defaultInitState) => {
+    return createStore<CounterStore>()((set) => ({
+        ...initState,
+        incrementCount: () => set((state) => ({ count: state.count + 1 })),
+        reset: () => set({ count: 0 }),
+    }))
+}
