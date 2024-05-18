@@ -16,6 +16,8 @@ import { InvoicesTableSkeleton } from '@/app/ui/serverSide/skeletons'
 
 import { fetchInvoicesPages } from '@/app/lib/data'
 
+import MakeError from '@/app/ui/serverSide/makeError'
+
 // When to use the useSearchParams() hook vs. the searchParams prop?
 // Server Component 使用 searchParams；Client Component 使用 useSearchParams()
 // https://nextjs.org/learn/dashboard-app/adding-search-and-pagination#4-updating-the-table
@@ -36,6 +38,9 @@ export default async function Page({
     return (
         <>
             <h1 className={'mb-4 text-xl md:text-2xl'}>Server Side Dynamic Rendering Page</h1>
+
+            <MakeError />
+            <br />
 
             <div className='w-full'>
                 <div className='mt-4 flex items-center justify-between gap-2 md:mt-8'>

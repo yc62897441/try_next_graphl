@@ -17,6 +17,8 @@ import { cookies } from 'next/headers'
 
 import Image from 'next/image'
 
+import MakeError from '@/app/ui/serverSide/makeError'
+
 const GET_LOCATIONS = gql`
     query GetLocations {
         locations {
@@ -50,6 +52,8 @@ export default async function Page() {
         <>
             <h1 className={'mb-4 text-xl md:text-2xl'}>Server Side Dynamic Rendering Page</h1>
             <br />
+
+            <MakeError />
 
             <h2 className={`mb-4 text-xl md:text-2xl`}>以下使用 Suspense</h2>
             <p>使用 Suspense 實作單個 component streaming(Streaming a component)</p>

@@ -20,6 +20,7 @@ import { z } from 'zod'
 
 // This is temporary until @types/react-dom is updated
 export type State = {
+    // 在 TypeScript 中「?:」符號用於定義可選屬性（optional properties）。這意味著該屬性可以存在，也可以不存在。
     errors?: {
         customerId?: string[]
         amount?: string[]
@@ -57,13 +58,15 @@ export async function createInvoice(prevState: State, formData: FormData) {
     // const { customerId, amount, status } = CreateInvoice.parse({
     // safeParse() 會回傳一個物件，包含 success 或是 error 屬性.
     const validatedFields = CreateInvoice.safeParse({
-        customerId: formData.get('customerId'),
+        customerId: formData.get('customerId'), // customerId 為表單輸入元件的 name 屬性
         amount: formData.get('amount'),
         status: formData.get('status'),
     })
 
     // If form validation fails, return errors early. Otherwise, continue.
+
     if (!validatedFields.success) {
+        // 如果表單驗證錯誤，回傳資訊給前端
         return {
             errors: validatedFields.error.flatten().fieldErrors,
             message: 'Missing Fields. Failed to Create Invoice.',
@@ -88,6 +91,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
         }
     }
 
+    // 把 redirect 放在 try catch 後面，只有 try 成功執行時，才會執行到 redirect
+
     // Revalidate and redirect
     // Next.js 有一個客戶端路由器快取，可將路由段儲存在使用者瀏覽器中一段時間。 與預取一起，此快取可確保使用者可以在路由之間快速導航，同時減少向伺服器發出的請求數量。
     // 由於您要更新發票路由中顯示的數據，因此您希望清除此快取並向伺服器觸發新請求。 您可以使用 Next.js 中的 revalidatePath 函數來執行此操作：
@@ -96,4 +101,8 @@ export async function createInvoice(prevState: State, formData: FormData) {
     redirect('/serverSide/search')
     // revalidatePath('/dashboard/invoices')
     // redirect('/dashboard/invoices')
+}
+
+export async function makeError(prevState: State, formData: FormData) {
+    throw new Error('故意測試 Error')
 }

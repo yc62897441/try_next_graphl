@@ -39,7 +39,8 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
     // Server-Side validation
     // https://nextjs.org/learn/dashboard-app/improving-accessibility#server-side-validation
     const initialState = { message: null, errors: {} } // The initialState can be anything you define
-    const [state, dispatch] = useFormState(createInvoice, initialState)
+    const [state, dispatch] = useFormState(createInvoice, initialState) // https://es.react.dev/reference/react/useActionState
+    // state 一開始的樣子 { "message": null, "errors": {} } // errors 的內容在 createInvoice 中定義，發生錯誤時產生
 
     return (
         // <form action={createInvoice}>
@@ -98,7 +99,7 @@ export default function Form({ customers }: { customers: CustomerField[] }) {
                                 step='0.01'
                                 placeholder='Enter USD amount'
                                 className='peer block w-full rounded-md border border-gray-200 py-2 pl-10 text-sm outline-2 placeholder:text-gray-500 text-neutral-950'
-                                required
+                                required // Client-Side validation 客戶端做表單合法性檢查 // https://nextjs.org/learn/dashboard-app/improving-accessibility#client-side-validation
                                 aria-describedby='customer-error2'
                             />
                             <CurrencyDollarIcon className='pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900' />
