@@ -1,5 +1,10 @@
 // 在 server components 搜尋 Data
 
+import { Metadata } from 'next'
+export const metadata: Metadata = {
+    title: 'serverSide',
+}
+
 // Using Server Components to fetch data
 // 在全端專案中，使用 Database queries 來存取資料庫資料(建立 API endpoints)
 // 在 Server Components 中可以使用 async/await 語法來操作資料庫，並且不需要使用 useEffect、useState、data fetching libraries
