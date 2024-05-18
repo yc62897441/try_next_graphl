@@ -106,3 +106,24 @@ export async function createInvoice(prevState: State, formData: FormData) {
 export async function makeError(prevState: State, formData: FormData) {
     throw new Error('故意測試 Error')
 }
+
+// Updating the login form
+// 將身份驗證邏輯與登入表單連接，從 auth.ts 匯入 signIn 函數
+// https://nextjs.org/learn/dashboard-app/adding-authentication#updating-the-login-form
+import { signIn } from '@/auth'
+import { AuthError } from 'next-auth'
+export async function authenticate(prevState: string | undefined, formData: FormData) {
+    try {
+        await signIn('credentials', formData)
+    } catch (error) {
+        if (error instanceof AuthError) {
+            switch (error.type) {
+                case 'CredentialsSignin':
+                    return 'Invalid credentials.' // 使用「 NextAuth.js 錯誤」來顯示錯誤提示 // https://authjs.dev/reference/core/errors
+                default:
+                    return 'Something went wrong.'
+            }
+        }
+        throw error
+    }
+}

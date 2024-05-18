@@ -17,6 +17,7 @@ import './globals.css'
 
 // 自定義 components
 import Header from './ui/Header'
+import SignOut from './ui/signout'
 
 // 自定義函數 or 參數
 
@@ -37,6 +38,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 <ApolloWrapper>
                     <StyledComponentsRegistry>
                         <Header />
+                        <SignOut />
                         {children}
                     </StyledComponentsRegistry>
                 </ApolloWrapper>
